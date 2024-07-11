@@ -35,16 +35,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("My App"),
         ),
-        body:  Column(
-          children: [
-            Expanded(child: Container(
-              padding: const EdgeInsets.all(12),
-              color: Colors.amber,
-              child: const Text("Text1"))),
-            const Expanded(child: Text("Text2")),
-            const Expanded(child: Text("Text3")),
-          ],
-        ),
+        body: Center(child: const Text("Hello World")),
       ),
     );
   }
