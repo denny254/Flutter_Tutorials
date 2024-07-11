@@ -10,9 +10,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-
-    final List<String> friends = ["Denny", "Kinanga", "Shuvo", "Rodoshi"];
-    
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -38,15 +35,16 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("My App"),
         ),
-        body:ListView.builder(
-          itemCount: friends.length,
-          itemBuilder: (context,index){
-          return Container(
-            padding: const EdgeInsets.all(8),
-            color: Colors.amber,
-            margin: const EdgeInsets.only(bottom: 1),
-            child: Text(friends[index]));
-        }),
+        body:  Column(
+          children: [
+            Expanded(child: Container(
+              padding: const EdgeInsets.all(12),
+              color: Colors.amber,
+              child: const Text("Text1"))),
+            const Expanded(child: Text("Text2")),
+            const Expanded(child: Text("Text3")),
+          ],
+        ),
       ),
     );
   }
