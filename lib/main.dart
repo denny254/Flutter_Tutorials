@@ -38,12 +38,41 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("My App"),
         ),
-        body: Home()
-      ),
+        body: const MyFirstStatfulWidget()),
     );
   }
 }
   
+
+
+class MyFirstStatfulWidget extends StatefulWidget {
+  const MyFirstStatfulWidget({super.key});
+
+  @override
+  State<MyFirstStatfulWidget> createState() => _MyFirstStatfulWidgetState();
+}
+
+class _MyFirstStatfulWidgetState extends State<MyFirstStatfulWidget> {
+  bool isGreen =false; 
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: GestureDetector(
+        onTap: () =>{
+          // ignore: unnecessary_set_literal
+          setState(()=>{
+            isGreen = !isGreen
+          })
+        },
+        child: Container(
+          padding: const EdgeInsets.all(40),
+          color: isGreen ? Colors.green :Colors.amber,
+          child: const Text("Hello Stateful Widget")),
+      ),
+    );
+  }
+}
+
 
 
 class Home extends StatelessWidget {
