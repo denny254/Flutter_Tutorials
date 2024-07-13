@@ -19,11 +19,45 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Tutor"),
         ),
-        body: const StarWars()),
+        body: const BottomNav()),
     );
   }
 }
   
+
+class BottomNav extends StatefulWidget {
+  const BottomNav({super.key});
+
+  @override
+  State<BottomNav> createState() => _BottomNavState();
+}
+
+class _BottomNavState extends State<BottomNav> {
+  int currentIndex = 0;
+  List<Widget> bodyItems = const [
+    Center(child: Text("Home"),),
+    Center(child: Text("Away"),),
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body: bodyItems[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.blue,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.abc), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.ac_unit), label: "Away"),
+        ],
+        onTap: (index) => {
+          setState(() {currentIndex = index;})
+        },
+      ),
+    );
+  }
+}
+
 
 class StarWars extends StatelessWidget {
   const StarWars({super.key});
