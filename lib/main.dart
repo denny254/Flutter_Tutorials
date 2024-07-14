@@ -19,7 +19,8 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Tutor"),
         ),
-        body: const BottomNav()),
+        body: const StarWars()
+        ),
     );
   }
 }
@@ -67,7 +68,30 @@ class StarWars extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const Row(
+          topAvatar(),
+          const Divider(
+            color: Colors.grey,
+          ),
+          bottomText(
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",),
+          bottomText("The standard Lorem Ipsum passage")
+        ],
+      ),
+    );
+  }
+}
+
+
+Container bottomText(String text){
+  return Container(
+            padding: const EdgeInsets.all(1.0),
+            child:  Text(text),
+          );
+        
+}
+
+Row topAvatar(){
+  return const Row(
             children: [
               CircleAvatar(
                 radius: 50,
@@ -82,22 +106,8 @@ class StarWars extends StatelessWidget {
                 ],
               )
             ],
-          ),
-          const Divider(
-            color: Colors.grey,
-          ),
-          Container(
-            padding: const EdgeInsets.all(16.0),
-            child: const Text(
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+          );
 }
-
 
 class RouteOne extends StatelessWidget {
   const RouteOne({super.key});
